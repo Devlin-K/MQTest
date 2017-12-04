@@ -12,6 +12,8 @@ import java.util.concurrent.TimeoutException;
  */
 public class Send {
     private final static String EXCHANGE_NAME = "exchange_fanout";
+    //设置queue名称
+    private static final String TASK_QUEUE_NAME = "MQHomeWork";
 
     public static void main(String[] argv) throws java.io.IOException, TimeoutException {
 
@@ -26,6 +28,7 @@ public class Send {
         Connection connection = mqfactory.newConnection();
         Channel channel = connection.createChannel();
         channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
+
 
         //获取输入的信息，“q”为退出，其他之设置为Username
         String temp;
